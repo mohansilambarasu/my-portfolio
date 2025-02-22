@@ -14,10 +14,10 @@ import StarCanvas from "./components/StarCanvas";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/my-portfolio">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/my-portfolio/" element={<Home />} />
         </Routes>
         <StarCanvas />
       </BrowserRouter>
