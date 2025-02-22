@@ -20,11 +20,11 @@ export const Navbar = () => {
   };
 
   const links = [
-    { href: "/#top", label: "Home" },
-    { href: "/#about", label: "About" },
-    { href: "/#work", label: "Work" },
-    { href: "/#project", label: "Projects" },
-    { href: "/#contact", label: "Contact" },
+    { href: "#top", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#work", label: "Work" },
+    { href: "#project", label: "Projects" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (

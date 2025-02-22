@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { About } from "./components/About";
@@ -14,13 +14,13 @@ import StarCanvas from "./components/StarCanvas";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Routes>
-          <Route path="/my-portfolio/" element={<Home />} />
+          <Route path="/" element={<Home />} />
         </Routes>
         <StarCanvas />
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
