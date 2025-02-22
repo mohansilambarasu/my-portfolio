@@ -14,7 +14,7 @@ import StarCanvas from "./components/StarCanvas";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/my-portfolio">
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/my-portfolio/" element={<Home />} />
