@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: "/my-portfolio/",  // Must match your repo name
+  base: "/my-portfolio",  // Must match your repo name
   build: {
     outDir: "dist",
   },
