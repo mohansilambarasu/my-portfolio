@@ -7,7 +7,13 @@ export const About = () => {
       id="about"
     >
       <motion.div
-        className="max-w-5xl flex flex-col items-center space-y-6 bg-gray-800 bg-opacity-70 p-6 md:p-5 lg:p-10 rounded-2xl shadow-lg"
+        className="
+      max-w-5xl flex flex-col items-center space-y-6 
+                   bg-gray-800 bg-opacity-30 backdrop-blur-md p-8 md:p-10 
+                   lg:p-12 rounded-2xl shadow-lg border border-gray-600 
+                   border-opacity-30 hover:border-opacity-50 
+                   transition-all duration-500
+      "
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -30,7 +36,7 @@ export const About = () => {
           viewport={{ once: true }}
         >
           <motion.p
-            className="text-md md:text-lg leading-relaxed text-gray-300"
+            className="text-md md:text-lg leading-relaxed text-gray-300 text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -44,8 +50,9 @@ export const About = () => {
             <span className="text-cyan-300">Graduate Teaching Assistant</span>,
             assisting with DBMS, SQL, and grading.
           </motion.p>
+
           <motion.p
-            className="text-md md:text-lg leading-relaxed text-gray-300"
+            className="text-md md:text-lg leading-relaxed text-gray-300 text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -66,8 +73,9 @@ export const About = () => {
             <span className="text-cyan-300">big data, cloud computing,</span>{" "}
             and <span className="text-cyan-300">NLP</span>.
           </motion.p>
+
           <motion.p
-            className="text-md md:text-lg leading-relaxed text-gray-300"
+            className="text-md md:text-lg leading-relaxed text-gray-300 text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
