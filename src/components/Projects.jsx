@@ -5,8 +5,26 @@ import project2 from "../assets/personal-projects/foodigo.png";
 import project3 from "../assets/personal-projects/tictactoe.png";
 import project4 from "../assets/personal-projects/stickyscripts.png";
 import project5 from "../assets/personal-projects/haute.png";
+import project6 from "../assets/personal-projects/blogsphere.png";
+import project7 from "../assets/personal-projects/exoplanetAnalysis.png";
 
 const personalProjects = [
+  {
+    title: "Exoplanet Analysis: Interactive Research & Data Visualization",
+    description:
+      "Developed a research website analyzing exoplanet data, showcasing discoveries, trends, and habitability insights using React, Vite, Tailwind CSS, Framer Motion, React Scroll, Charts.",
+    image: project6,
+    technologies: ["Python", "R", "MySQL", "AWS"],
+    link: "https://mohansilambarasu.github.io/exoplanet-analysis/",
+  },
+  {
+    title: "BlogSphere",
+    description:
+      "BlogSphere App: A full-stack blog platform using React, Vite, Tailwind CSS, enabling users to post, comment, like, and interact in real time.",
+    image: project7,
+    technologies: ["React", "Tailwind CSS", "Vite", "Vercel"],
+    link: "https://myblog-app-xi.vercel.app/",
+  },
   {
     title: "Ecommerce Web App",
     description:
