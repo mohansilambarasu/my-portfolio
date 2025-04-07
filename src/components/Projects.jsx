@@ -123,7 +123,7 @@ export const Project = () => {
 
   return (
     <motion.section
-      className="text-white py-20"
+      className=" py-20"
       id="project"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -131,7 +131,7 @@ export const Project = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-[#00e1ff] to-[#3f7af0]"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -144,9 +144,7 @@ export const Project = () => {
       <div className="flex justify-center gap-6 mb-8">
         <button
           className={`text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 ${
-            activeTab === "personal"
-              ? "bg-cyan-500 text-black"
-              : "bg-gray-700 text-white"
+            activeTab === "personal" ? " " : " "
           }`}
           onClick={() => setActiveTab("personal")}
         >
@@ -154,9 +152,7 @@ export const Project = () => {
         </button>
         <button
           className={`text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 ${
-            activeTab === "work"
-              ? "bg-cyan-500 text-black"
-              : "bg-gray-700 text-white"
+            activeTab === "work" ? " " : " "
           }`}
           onClick={() => setActiveTab("work")}
         >
@@ -170,7 +166,7 @@ export const Project = () => {
           ? personalProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800 p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
+                className=" p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -181,15 +177,13 @@ export const Project = () => {
                   alt={project.title}
                   className="w-full h-40 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-2xl font-bold text-cyan-400">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mt-2">{project.description}</p>
+                <h3 className="text-2xl font-bold ">{project.title}</h3>
+                <p className=" mt-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-cyan-500 text-black text-sm font-semibold px-3 py-1 rounded-full"
+                      className="text-sm font-semibold px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>
@@ -197,7 +191,7 @@ export const Project = () => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-block mt-4 text-cyan-300 hover:underline"
+                  className="inline-block mt-4  hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -208,19 +202,17 @@ export const Project = () => {
           : workProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800 p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
+                className=" p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-cyan-400">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mt-2">{project.description}</p>
+                <h3 className="text-2xl font-bold ">{project.title}</h3>
+                <p className=" mt-2">{project.description}</p>
                 <a
                   href={project.link}
-                  className="inline-block mt-4 text-cyan-300 hover:underline"
+                  className="inline-block mt-4  hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

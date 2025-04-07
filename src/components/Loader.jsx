@@ -13,7 +13,7 @@ const Loader = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-white">
+    <div className="flex items-center justify-center min-h-screen  ">
       <div className="text-5xl animate-spin">{icons[currentIcon]}</div>
       <p className="ml-4 text-lg">Loading...</p>
     </div>

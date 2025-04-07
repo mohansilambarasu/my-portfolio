@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export const Work = () => {
   return (
     <motion.div
-      className="text-white py-20"
+      className=" py-20"
       id="work"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export const Work = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-[#00e1ff] to-[#3f7af0]"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -29,10 +29,10 @@ export const Work = () => {
       <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: "#1e2939", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid #1e2939" }}
+          contentStyle={{ background: "#fff", color: "#000" }}
+          contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="January 2025 – Present"
-          iconStyle={{ background: "#00e1ff", color: "#fff" }}
+          iconStyle={{ background: "#fff", color: "#000" }}
           icon={<FaChalkboardTeacher />}
         >
           <motion.h3
@@ -48,19 +48,25 @@ export const Work = () => {
             George Mason University
           </h4>
           <p>
-            - Assist students in understanding core DBMS concepts like ER
-            diagrams, normalization, and Oracle SQL.
-            <br />- Support grading, conduct review sessions, and mentor
-            students in advanced database concepts.
+            - Assisted 60+ students in a graduate-level DBMS course with SQL
+            queries, ER diagrams, normalization, and query optimization using
+            Oracle SQL.
+            <br />
+            <br />
+            - Led weekly code reviews and debugging sessions, mentoring students
+            on complex database issues and advanced DBMS concepts.
+            <br />
+            <br />- Strengthened communication, problem-solving, and leadership
+            skills in a fast-paced academic setting.
           </p>
         </VerticalTimelineElement>
 
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: "#1e2939", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid #1e2939" }}
+          contentStyle={{ background: "#fff", color: "#000" }}
+          contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="April 2022 – July 2024"
-          iconStyle={{ background: "#3f7af0", color: "#fff" }}
+          iconStyle={{ background: "#fff", color: "#000" }}
           icon={<FaLaptopCode />}
         >
           <motion.h3
@@ -74,22 +80,28 @@ export const Work = () => {
           </motion.h3>
           <h4 className="text-lg md:text-2xl font-medium">Solvative</h4>
           <p>
-            - Translated Figma designs into responsive web applications using
-            Adobe Experience Manager, SCSS, and JavaScript.
+            - Led a front-end team delivering 12+ projects in 10 months;
+            recognized for performance and selected for interview panel.
             <br />
-            - Developed a real-time UI for a chiller system using React.js,
-            TypeScript, and Node.js.
-            <br />- Led frontend development, delivering 12+ projects in 10
-            months and conducting hiring interviews.
+            <br />
+            - Developed scalable, responsive web apps from Figma designs using
+            AEM, React.js, and SCSS.
+            <br />
+            <br />
+            - Managed CI/CD pipelines (GitLab) and agile workflows (Jira),
+            ensuring 100% on-time delivery.
+            <br />
+            <br />- Built a real-time chiller monitoring UI with React,
+            TypeScript, and REST APIs, reducing manual reporting by 35%.
           </p>
         </VerticalTimelineElement>
 
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: "#1e2939", color: "#fff" }}
-          contentArrowStyle={{ borderRight: "7px solid #1e2939" }}
+          contentStyle={{ background: "#fff", color: "#000" }}
+          contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="May 2021 – Feb 2022"
-          iconStyle={{ background: "#ff4c60", color: "#fff" }}
+          iconStyle={{ background: "#fff", color: "#000" }}
           icon={<FaDatabase />}
         >
           <motion.h3
@@ -105,13 +117,15 @@ export const Work = () => {
             Kantar Analytics Practice
           </h4>
           <p>
-            - Developed SQL queries for data validation on global drink
-            consumption datasets from 200+ brands.
+            - Developed SQL queries for cleaning, validation, and integrity
+            checks on global drink consumption data from 200+ brands.
             <br />
-            - Automated brand name updates using Python, reducing delivery time
-            by 2–3 weeks.
-            <br />- Led weekly client calls for requirement analysis and bug
-            testing in Azure DevOps.
+            <br />
+            - Led client meetings, managed requirements, and coordinated
+            progress using Azure DevOps in cross-functional teams.
+            <br />
+            <br />- Automated dashboard updates with Python, cutting reporting
+            time by 2–3 weeks.
           </p>
         </VerticalTimelineElement>
       </VerticalTimeline>

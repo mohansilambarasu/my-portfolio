@@ -30,19 +30,14 @@ export const Navbar = () => {
   return (
     <>
       <motion.div
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 bg-gray-800 bg-opacity-80 px-10 py-4 rounded-full shadow-lg flex items-center gap-10 transition-all duration-500 hidden lg:flex border-2 border-white ${
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-10 py-4 rounded-full shadow-lg flex items-center gap-10 transition-all duration-500 hidden lg:flex border-2 border-white ${
           isScrolled ? "scale-100" : "scale-90"
         } z-50`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         {links.map((link, index) => (
-          <HashLink
-            key={index}
-            smooth
-            to={link.href}
-            className="text-white text-lg hover:text-cyan-400"
-          >
+          <HashLink key={index} smooth to={link.href} className=" text-lg">
             {link.label}
           </HashLink>
         ))}
@@ -51,7 +46,7 @@ export const Navbar = () => {
       <div className="lg:hidden fixed top-4 right-4 z-50">
         <button
           onClick={handleMenuClick}
-          className="text-white text-2xl px-4 pt-1 pb-2 rounded-lg shadow-lg"
+          className=" text-2xl px-4 pt-1 pb-2 rounded-lg shadow-lg"
         >
           {isMenuActive ? "✕" : "☰"}
         </button>
@@ -64,7 +59,7 @@ export const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 right-0 w-full h-screen bg-gray-800 flex flex-col items-center gap-6 p-6 z-40"
+            className="fixed top-0 right-0 w-full h-screen  flex flex-col items-center gap-6 p-6 z-40"
           >
             {links.map((link, index) => (
               <HashLink
@@ -72,7 +67,7 @@ export const Navbar = () => {
                 smooth
                 to={link.href}
                 onClick={handleMenuClick}
-                className="text-white text-2xl lg:text-lg hover:text-cyan-400"
+                className=" text-2xl lg:text-lg"
               >
                 {link.label}
               </HashLink>

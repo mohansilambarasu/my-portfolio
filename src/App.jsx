@@ -11,9 +11,12 @@ import { Hero } from "./components/Hero";
 import { Home } from "./pages/Home";
 import StarCanvas from "./components/StarCanvas";
 import Loader from "./components/Loader";
+import Base from "./pages/Base";
+import { useStarsBackground } from "./context/starsbackgroundContext";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const { StarsBackground } = useStarsBackground();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -25,11 +28,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <div
+          className={`fixed w-screen h-22 z-[2] ${
+            StarsBackground ? "bg-black" : "bg-white"
+          }`}
+        ></div>
         <Navbar />
         <Routes>
-          <Route path="/my-portfolio/" element={<Home />} />
+          <Route path="/my-portfolio/" element={<Base />} />
         </Routes>
-        <StarCanvas />
       </BrowserRouter>
     </>
   );
