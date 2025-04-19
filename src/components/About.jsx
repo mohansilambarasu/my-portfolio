@@ -1,26 +1,22 @@
 import { motion } from "framer-motion";
-import { useStarsBackground } from "../context/starsbackgroundContext";
 
 export const About = () => {
-  const { StarsBackground } = useStarsBackground();
-
   return (
     <motion.section
       className="relative flex items-center justify-center min-h-screen  px-6 py-12"
       id="about"
     >
       <motion.div
-        className="max-w-5xl flex flex-col items-centers pace-y-6  p-8 md:p-10 
-                   lg:p-12 
-                   transition-all duration-500
-      "
+        className="max-w-5xl flex flex-col items-centers pace-y-6  p-8 md:p-10
+        lg:p-12
+        transition-all duration-500"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl md:text-5xl font-extrabold mb-4 tracking-wide text-center"
+          className="text-3xl md:text-5xl font-extrabold mb-4 tracking-wide text-center retro-text"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
@@ -36,13 +32,13 @@ export const About = () => {
           viewport={{ once: true }}
         >
           <motion.p
-            className="text-md md:text-lg leading-relaxed  text-justify"
+            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            Hi, I'm <span className="font-semibold ">Mohan</span>, an
+            Hi, I'm <span className="font-semibold">Mohan</span>, an
             international student pursuing my Master's in Applied Information
             Technology at George Mason University with a{" "}
             <span className="">4.0 GPA</span>, specializing in Data Analytics
@@ -52,7 +48,7 @@ export const About = () => {
           </motion.p>
 
           <motion.p
-            className="text-md md:text-lg leading-relaxed  text-justify"
+            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -72,15 +68,20 @@ export const About = () => {
           </motion.p>
 
           <motion.p
-            className="text-md md:text-lg leading-relaxed  text-justify"
+            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
             I am actively seeking{" "}
-            <span className="">Summer 2025 internships</span> in{" "}
-            <span className="">Software Development or Data Engineering,</span>{" "}
+            <span className="text-sm md:text-lg retro-text">
+              Summer/Fall 2025 internships
+            </span>{" "}
+            in{" "}
+            <span className="text-sm md:text-lg retro-text">
+              Software Development or Data Engineering,
+            </span>{" "}
             where I can leverage my technical expertise, industry experience,
             and problem-solving skills. I am eager to contribute effectively to
             your team while continuing to learn and grow within your

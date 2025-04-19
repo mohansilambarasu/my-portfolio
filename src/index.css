@@ -12,3 +12,34 @@ body:has(.nav-open){
 .vertical-timeline::before {
  
 }
+
+.retro-text {
+font-family: 'Press Start 2P', cursive;
+}
+
+.typewriter-text {
+font-family: 'VT323', monospace;
+}
+
+.orbitron {
+font-family: 'Orbitron', sans-serif;
+}
+
+.silkscreen {
+    font-family: 'Silkscreen', cursive;
+  }
+
+  .terminal {
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .mono-display {
+    font-family: 'Major Mono Display', monospace;
+  }
+
+  .audiowide {
+    font-family: 'Audiowide', cursive;
+  }
+
+
+  

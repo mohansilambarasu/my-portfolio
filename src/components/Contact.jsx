@@ -11,7 +11,7 @@ export const Contact = () => {
       transition={{ duration: 1 }}
     >
       <motion.h2
-        className="text-5xl font-extrabold text-center mb-10"
+        className="text-5xl font-extrabold text-center mb-10 retro-text"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -20,7 +20,7 @@ export const Contact = () => {
       </motion.h2>
 
       <motion.p
-        className="text-lg  text-center max-w-2xl mb-10"
+        className="text-2xl  text-center max-w-2xl md:max-w-5xl mb-10 audiowide"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
@@ -28,13 +28,14 @@ export const Contact = () => {
         Please feel free to reach out!
         <br></br>
         Whether you want to discuss a project, collaborate, or just say{" "}
+        <br></br>
         <span className="">hi!</span>, my inbox is always open.
       </motion.p>
 
       <div className="flex flex-col">
         <motion.a
           href="mailto:mohansilambu77@gmail.com"
-          className="flex items-center gap-3  p-4 rounded-xl transition"
+          className="flex items-center gap-3  p-4 rounded-xl transition retro-text"
           whileHover={{ scale: 1.1 }}
         >
           <FaEnvelope size={24} /> Send an email now

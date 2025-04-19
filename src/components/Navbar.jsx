@@ -37,7 +37,12 @@ export const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
       >
         {links.map((link, index) => (
-          <HashLink key={index} smooth to={link.href} className=" text-lg">
+          <HashLink
+            key={index}
+            smooth
+            to={link.href}
+            className=" text-lg retro-text"
+          >
             {link.label}
           </HashLink>
         ))}
@@ -59,7 +64,7 @@ export const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 right-0 w-full h-screen  flex flex-col items-center gap-6 p-6 z-40"
+            className="fixed top-0 right-0 w-full h-screen  flex flex-col items-center gap-6 p-6 z-40 bg-white"
           >
             {links.map((link, index) => (
               <HashLink
@@ -67,7 +72,7 @@ export const Navbar = () => {
                 smooth
                 to={link.href}
                 onClick={handleMenuClick}
-                className=" text-2xl lg:text-lg"
+                className=" text-2xl lg:text-lg retro-text"
               >
                 {link.label}
               </HashLink>

@@ -17,7 +17,7 @@ export const Work = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -28,7 +28,7 @@ export const Work = () => {
 
       <VerticalTimeline>
         <VerticalTimelineElement
-          className="vertical-timeline-element--work"
+          className="vertical-timeline-element--work retro-text"
           contentStyle={{ background: "#fff", color: "#000" }}
           contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="January 2025 – Present"
@@ -36,7 +36,7 @@ export const Work = () => {
           icon={<FaChalkboardTeacher />}
         >
           <motion.h3
-            className="text-xl font-bold"
+            className="text-xl font-bold retro-text"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -44,10 +44,10 @@ export const Work = () => {
           >
             Graduate Teaching Assistant
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium">
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
             George Mason University
           </h4>
-          <p>
+          <p className="audiowide">
             - Assisted 60+ students in a graduate-level DBMS course with SQL
             queries, ER diagrams, normalization, and query optimization using
             Oracle SQL.
@@ -62,7 +62,7 @@ export const Work = () => {
         </VerticalTimelineElement>
 
         <VerticalTimelineElement
-          className="vertical-timeline-element--work"
+          className="vertical-timeline-element--work retro-text"
           contentStyle={{ background: "#fff", color: "#000" }}
           contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="April 2022 – July 2024"
@@ -70,7 +70,7 @@ export const Work = () => {
           icon={<FaLaptopCode />}
         >
           <motion.h3
-            className="text-lg md:text-2xl font-bold"
+            className="text-lg md:text-2xl font-bold retro-text"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -78,8 +78,10 @@ export const Work = () => {
           >
             Frontend Developer
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium">Solvative</h4>
-          <p>
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
+            Solvative
+          </h4>
+          <p className="audiowide">
             - Led a front-end team delivering 12+ projects in 10 months;
             recognized for performance and selected for interview panel.
             <br />
@@ -97,7 +99,7 @@ export const Work = () => {
         </VerticalTimelineElement>
 
         <VerticalTimelineElement
-          className="vertical-timeline-element--work"
+          className="vertical-timeline-element--work retro-text"
           contentStyle={{ background: "#fff", color: "#000" }}
           contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="May 2021 – Feb 2022"
@@ -105,7 +107,7 @@ export const Work = () => {
           icon={<FaDatabase />}
         >
           <motion.h3
-            className="text-lg md:text-2xl font-bold"
+            className="text-lg md:text-2xl font-bold retro-text"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -113,10 +115,10 @@ export const Work = () => {
           >
             Senior Analyst - Data Strategy & Engineering
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium">
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
             Kantar Analytics Practice
           </h4>
-          <p>
+          <p className="audiowide">
             - Developed SQL queries for cleaning, validation, and integrity
             checks on global drink consumption data from 200+ brands.
             <br />

@@ -10,7 +10,7 @@ import project7 from "../assets/personal-projects/exoplanetAnalysis.png";
 
 const personalProjects = [
   {
-    title: "Exoplanet Analysis: Interactive Research & Data Visualization",
+    title: "Exoplanet Analysis",
     description:
       "Developed a research website analyzing exoplanet data, showcasing discoveries, trends, and habitability insights using React, Vite, Tailwind CSS, Framer Motion, React Scroll, Charts.",
     image: project6,
@@ -131,7 +131,7 @@ export const Project = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -143,7 +143,7 @@ export const Project = () => {
       {/* Tabs */}
       <div className="flex justify-center gap-6 mb-8">
         <button
-          className={`text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 ${
+          className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
             activeTab === "personal" ? " " : " "
           }`}
           onClick={() => setActiveTab("personal")}
@@ -151,7 +151,7 @@ export const Project = () => {
           Personal Projects
         </button>
         <button
-          className={`text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 ${
+          className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
             activeTab === "work" ? " " : " "
           }`}
           onClick={() => setActiveTab("work")}
@@ -177,13 +177,17 @@ export const Project = () => {
                   alt={project.title}
                   className="w-full h-40 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-2xl font-bold ">{project.title}</h3>
-                <p className=" mt-2">{project.description}</p>
+                <h3 className="text-2xl font-bold typewriter-text audiowide">
+                  {project.title}
+                </h3>
+                <p className=" mt-2 terminal tracking-wider">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-sm font-semibold px-3 py-1 rounded-full"
+                      className="text-lg font-semibold typewriter-text  px-2 py-1 bg-black text-white"
                     >
                       {tech}
                     </span>
@@ -191,7 +195,7 @@ export const Project = () => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-block mt-4  hover:underline"
+                  className="inline-block mt-4  hover:underline text-2xl typewriter-text"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

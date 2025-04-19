@@ -2,17 +2,11 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowDown } from "react-icons/fa";
 import { Button, Link } from "react-scroll";
-import { useStarsBackground } from "../context/starsbackgroundContext";
-import ScatterText from "./ScatterText";
 
 export const Hero = () => {
-  const { StarsBackground } = useStarsBackground();
-
   return (
     <motion.div
-      className={`text-center h-screen w-full flex flex-col justify-center items-center gap-8 relative z-[1] overflow-hidden ${
-        StarsBackground ? "text-white" : "text-black"
-      }`}
+      className="text-center h-screen w-full flex flex-col justify-center items-center gap-8 relative z-[1] overflow-hidden"
       id="hero"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -24,7 +18,7 @@ export const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <h1 className="text-5xl md:text-7xl font-extrabold md:mb-4 tracking-wide min-h-25 md:min-h-auto">
+        <h1 className="text-5xl md:text-7xl font-extrabold md:mb-4 tracking-wide min-h-25 md:min-h-auto orbitron">
           <TypeAnimation
             sequence={[
               "Hey! I'm Mohan.",
@@ -41,11 +35,11 @@ export const Hero = () => {
             repeat={Infinity}
           />
         </h1>
-        <h2 className="text-lg md:text-2xl  font-medium tracking-wide">
+        <h2 className="text-lg md:text-2xl  font-medium tracking-wide typewriter-text">
           Master's in Applied Information Technology (4.0 GPA). DBMS Teaching
           Assistant @George Mason. Software Developer & Data Analyst
         </h2>
-        <h2 className="text-lg md:text-2xl  font-medium">
+        <h2 className="text-lg md:text-2xl  font-medium audiowide">
           Actively Seeking Summer 2025 Internship.
         </h2>
       </motion.div>
