@@ -28,11 +28,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div
-          className={`fixed w-screen h-22 z-[2] ${
-            StarsBackground ? "bg-black" : "bg-white"
-          }`}
-        ></div>
         <Navbar />
         <Routes>
           <Route path="/my-portfolio/" element={<Base />} />

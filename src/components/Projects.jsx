@@ -123,7 +123,7 @@ export const Project = () => {
 
   return (
     <motion.section
-      className=" py-20"
+      className=" py-20 bg-[#e0e0d1]"
       id="project"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -131,7 +131,7 @@ export const Project = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text text-[#8e44ad]"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -143,17 +143,28 @@ export const Project = () => {
       {/* Tabs */}
       <div className="flex justify-center gap-6 mb-8">
         <button
-          className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
-            activeTab === "personal" ? " " : " "
-          }`}
+          // className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
+          //   activeTab === "personal" ? " " : " "
+          // }`}
+          className={`text-2xl font-semibold px-6 py-2 rounded-full typewriter-text
+            ${
+              activeTab === "personal"
+                ? "bg-[#16a085] text-white shadow-md"
+                : "bg-white text-[#1e1e1e] border border-[#999]"
+            }
+          `}
           onClick={() => setActiveTab("personal")}
         >
           Personal Projects
         </button>
         <button
-          className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
-            activeTab === "work" ? " " : " "
-          }`}
+          className={`text-2xl font-semibold px-6 py-2 rounded-full typewriter-text
+            ${
+              activeTab === "work"
+                ? "bg-[#16a085] text-white shadow-md"
+                : "bg-white text-[#1e1e1e] border border-[#999]"
+            }          
+          `}
           onClick={() => setActiveTab("work")}
         >
           Work Projects
@@ -166,7 +177,7 @@ export const Project = () => {
           ? personalProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className=" p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
+                className="bg-[#f7f2e8] hover:bg-[#fae4c2]  p-6 rounded-xl shadow-md border border-[#999999] transform hover:scale-105 transition-transform duration-500 "
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -177,17 +188,17 @@ export const Project = () => {
                   alt={project.title}
                   className="w-full h-40 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-2xl font-bold typewriter-text audiowide">
+                <h3 className="text-2xl font-bold typewriter-text audiowide text-[#3b82f6]">
                   {project.title}
                 </h3>
-                <p className=" mt-2 terminal tracking-wider">
+                <p className=" mt-2 terminal text-[#1e1e1e]">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-lg font-semibold typewriter-text  px-2 py-1 bg-black text-white"
+                      className="text-lg font-semibold typewriter-text  px-2 py-1 bg-[#f4d03f] text-[#1e1e1e]"
                     >
                       {tech}
                     </span>
@@ -195,7 +206,7 @@ export const Project = () => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-block mt-4  hover:underline text-2xl typewriter-text"
+                  className="inline-block mt-4  hover:underline text-2xl text-[#e91e63] typewriter-text"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -206,17 +217,19 @@ export const Project = () => {
           : workProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className=" p-6 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500"
+                className="p-6 rounded-2xl shadow-lg bg-white hover:bg-[#fae4c2] border border-[#999] hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold ">{project.title}</h3>
-                <p className=" mt-2">{project.description}</p>
+                <h3 className="text-2xl font-bold text-[#8e44ad]">
+                  {project.title}
+                </h3>
+                <p className=" mt-2 text-[#1e1e1e]">{project.description}</p>
                 <a
                   href={project.link}
-                  className="inline-block mt-4  hover:underline"
+                  className="inline-block mt-4  hover:underline text-[#e91e63]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

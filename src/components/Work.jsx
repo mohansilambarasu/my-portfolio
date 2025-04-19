@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export const Work = () => {
   return (
     <motion.div
-      className=" py-20"
+      className="py-20 bg-[#d1c5c0]"
       id="work"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export const Work = () => {
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text text-[#854836]"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -28,11 +28,21 @@ export const Work = () => {
 
       <VerticalTimeline>
         <VerticalTimelineElement
-          className="vertical-timeline-element--work retro-text"
-          contentStyle={{ background: "#fff", color: "#000" }}
-          contentArrowStyle={{ borderRight: "7px solid #000000" }}
+          className="vertical-timeline-element--work retro-text "
           date="January 2025 – Present"
-          iconStyle={{ background: "#fff", color: "#000" }}
+          contentStyle={{
+            background: "#fae4c2",
+            color: "#3e1929",
+            border: "2px solid #999999",
+            opacity: "1",
+          }}
+          contentArrowStyle={{ borderRight: "7px solid #999999" }}
+          iconStyle={{
+            background: "#ffffff",
+            color: "#ff4d4d",
+            border: "2px solid #999999",
+            boxShadow: "0 0 10px #3e1929",
+          }}
           icon={<FaChalkboardTeacher />}
         >
           <motion.h3
@@ -44,7 +54,7 @@ export const Work = () => {
           >
             Graduate Teaching Assistant
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text text-[#ae2012]">
             George Mason University
           </h4>
           <p className="audiowide">
@@ -63,10 +73,20 @@ export const Work = () => {
 
         <VerticalTimelineElement
           className="vertical-timeline-element--work retro-text"
-          contentStyle={{ background: "#fff", color: "#000" }}
-          contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="April 2022 – July 2024"
-          iconStyle={{ background: "#fff", color: "#000" }}
+          contentStyle={{
+            background: "#fae4c2",
+            color: "#3e1929",
+            border: "2px solid #999999",
+            opacity: "1",
+          }}
+          contentArrowStyle={{ borderRight: "7px solid #999999" }}
+          iconStyle={{
+            background: "#ffffff",
+            color: "#ff4d4d",
+            border: "2px solid #999999",
+            boxShadow: "0 0 10px #3e1929",
+          }}
           icon={<FaLaptopCode />}
         >
           <motion.h3
@@ -78,7 +98,7 @@ export const Work = () => {
           >
             Frontend Developer
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text text-[#ca6702]">
             Solvative
           </h4>
           <p className="audiowide">
@@ -100,10 +120,20 @@ export const Work = () => {
 
         <VerticalTimelineElement
           className="vertical-timeline-element--work retro-text"
-          contentStyle={{ background: "#fff", color: "#000" }}
-          contentArrowStyle={{ borderRight: "7px solid #000000" }}
           date="May 2021 – Feb 2022"
-          iconStyle={{ background: "#fff", color: "#000" }}
+          contentStyle={{
+            background: "#fae4c2",
+            color: "#3e1929",
+            border: "2px solid #999999",
+            opacity: "1",
+          }}
+          contentArrowStyle={{ borderRight: "7px solid #999999" }}
+          iconStyle={{
+            background: "#ffffff",
+            color: "#ff4d4d",
+            border: "2px solid #999999",
+            boxShadow: "0 0 10px #3e1929",
+          }}
           icon={<FaDatabase />}
         >
           <motion.h3
@@ -115,7 +145,7 @@ export const Work = () => {
           >
             Senior Analyst - Data Strategy & Engineering
           </motion.h3>
-          <h4 className="text-lg md:text-2xl font-medium typewriter-text">
+          <h4 className="text-lg md:text-2xl font-medium typewriter-text text-[#ca6702]">
             Kantar Analytics Practice
           </h4>
           <p className="audiowide">

@@ -21,65 +21,71 @@ export const Navbar = () => {
 
   const links = [
     { href: "/my-portfolio/#top", label: "Home" },
-    { href: "/my-portfolio/#about", label: "About" },
     { href: "/my-portfolio/#work", label: "Work" },
     { href: "/my-portfolio/#project", label: "Projects" },
+    { href: "/my-portfolio/#about", label: "About" },
     { href: "/my-portfolio/#contact", label: "Contact" },
   ];
 
   return (
     <>
-      <motion.div
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-10 py-4 rounded-full shadow-lg flex items-center gap-10 transition-all duration-500 hidden lg:flex border-2 border-white ${
-          isScrolled ? "scale-100" : "scale-90"
-        } z-50`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        {links.map((link, index) => (
-          <HashLink
-            key={index}
-            smooth
-            to={link.href}
-            className=" text-lg retro-text"
-          >
-            {link.label}
-          </HashLink>
-        ))}
-      </motion.div>
-
-      <div className="lg:hidden fixed top-4 right-4 z-50">
-        <button
-          onClick={handleMenuClick}
-          className=" text-2xl px-4 pt-1 pb-2 rounded-lg shadow-lg"
+      <div className="fixed w-screen z-[2] w-full flex items-center justify-between px-6 py-4 bg-[#2e2e3a] text-[#fbeec1] retro-text text-sm flex justify-end md:justify-center items-center">
+        <motion.nav
+          className={`px-10 py-3 rounded-xl bg-[#f3e3c3] border border-[#2e2e2e] shadow-[inset_-4px_-4px_0_#d6c2a8] flex items-center gap-10 transition-all duration-500 hidden lg:flex ${
+            isScrolled ? "scale-100" : "scale-90"
+          } z-50`}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
         >
-          {isMenuActive ? "✕" : "☰"}
-        </button>
-      </div>
+          <button className="w-5 h-5 bg-[#2e2e2e] rounded-full shadow-[inset_2px_2px_2px_#444]"></button>
 
-      <AnimatePresence>
-        {isMenuActive && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 right-0 w-full h-screen  flex flex-col items-center gap-6 p-6 z-40 bg-white"
+          {links.map((link, index) => (
+            <HashLink
+              key={index}
+              smooth
+              to={link.href}
+              className="text-sm retro-text text-[#2e2e2e] hover:text-[#d62828] transition-all duration-300"
+            >
+              {link.label}
+            </HashLink>
+          ))}
+
+          <button className="w-5 h-5 bg-[#d62828] rounded-full shadow-[inset_2px_2px_2px_#721010]"></button>
+        </motion.nav>
+
+        <div className="md:hidden relative z-50">
+          <button
+            onClick={handleMenuClick}
+            className="text-3xl text-[#fff44f] bg-[#2e2e3a] px-0 py-0 rounded-lg border border-[#1985a1] drop-shadow-[0_0_6px_#1985a1] transition"
           >
-            {links.map((link, index) => (
-              <HashLink
-                key={index}
-                smooth
-                to={link.href}
-                onClick={handleMenuClick}
-                className=" text-2xl lg:text-lg retro-text"
-              >
-                {link.label}
-              </HashLink>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {isMenuActive ? "✕" : "☰"}
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {isMenuActive && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="fixed top-0 right-0 w-full h-screen bg-[#1f1f2e] flex flex-col items-center pt-6 z-40"
+            >
+              {links.map((link, index) => (
+                <HashLink
+                  key={index}
+                  smooth
+                  to={link.href}
+                  onClick={handleMenuClick}
+                  className="text-2xl retro-text text-[#fbeec1] hover:text-[#ffa500] transition-all duration-300"
+                >
+                  {link.label}
+                </HashLink>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 };

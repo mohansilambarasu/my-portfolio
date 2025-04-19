@@ -3,20 +3,18 @@ import { motion } from "framer-motion";
 export const About = () => {
   return (
     <motion.section
-      className="relative flex items-center justify-center min-h-screen  px-6 py-12"
+      className="relative flex items-center justify-center min-h-screen px-6 py-12 bg-[#e9d8a6]"
       id="about"
     >
       <motion.div
-        className="max-w-5xl flex flex-col items-centers pace-y-6  p-8 md:p-10
-        lg:p-12
-        transition-all duration-500"
+        className="max-w-7xl flex flex-col space-y-8 p-8 md:p-10 lg:p-12 transition-all duration-500"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl md:text-5xl font-extrabold mb-4 tracking-wide text-center retro-text"
+          className="text-3xl md:text-5xl font-extrabold text-center retro-text text-[#035cc2]"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
@@ -24,15 +22,16 @@ export const About = () => {
         >
           About Me!
         </motion.h2>
+
         <motion.div
-          className="text-center space-y-6"
+          className="space-y-6 text-justify terminal text-[#9b2226]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
+            className="text-lg md:text-xl leading-relaxed  text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -48,7 +47,7 @@ export const About = () => {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
+            className="text-lg md:text-xl leading-relaxed  text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -68,7 +67,7 @@ export const About = () => {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify terminal"
+            className="text-lg md:text-xl leading-relaxed  text-justify"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
