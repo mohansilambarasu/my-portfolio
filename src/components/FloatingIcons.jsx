@@ -133,7 +133,7 @@ const icons = [
   },
 ];
 
-const FloatingIcons = () => {
+const FloatingIcons = (props) => {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none">
       {icons.map(({ Icon, color, top, left, delay }, index) => (
@@ -153,10 +153,10 @@ const FloatingIcons = () => {
           }}
         >
           <div className="block md:hidden">
-            <Icon size={10} style={{ color, opacity: 0.4 }} />
+            <Icon size={10} style={{ color, opacity: props.opacity }} />
           </div>
           <div className="hidden md:block">
-            <Icon size={28} style={{ color, opacity: 0.5 }} />
+            <Icon size={28} style={{ color, opacity: props.opacity }} />
           </div>
         </motion.div>
       ))}

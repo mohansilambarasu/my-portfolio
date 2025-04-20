@@ -13,7 +13,7 @@ export const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <FloatingIcons />
+      <FloatingIcons opacity="0.7" />
 
       <motion.div
         className="hero-content flex flex-col items-center gap-6 max-w-5xl px-6 md:px-8"

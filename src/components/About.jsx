@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FloatingIcons from "./FloatingIcons";
 
 export const About = () => {
   return (
@@ -22,6 +23,8 @@ export const About = () => {
         >
           About Me!
         </motion.h2>
+
+        <FloatingIcons opacity="0.3" />
 
         <motion.div
           className="space-y-6 text-justify terminal text-[#9b2226]"
