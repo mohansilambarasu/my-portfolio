@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="fixed w-screen z-[2] w-full flex items-center justify-between px-6 py-4 bg-[#2e2e3a] text-[#fbeec1] retro-text text-sm flex justify-end md:justify-center items-center">
+      <div className="fixed w-screen z-[2] w-full flex items-center justify-between px-6 py-4 bg-[#2e2e3a] text-[#fbeec1] retro-text text-sm flex justify-end lg:justify-center items-center">
         <motion.nav
           className={`px-10 py-3 rounded-xl bg-[#f3e3c3] border border-[#2e2e2e] shadow-[inset_-4px_-4px_0_#d6c2a8] flex items-center gap-10 transition-all duration-500 hidden lg:flex ${
             isScrolled ? "scale-100" : "scale-90"
@@ -52,7 +52,7 @@ export const Navbar = () => {
           <button className="w-5 h-5 bg-[#d62828] rounded-full shadow-[inset_2px_2px_2px_#721010]"></button>
         </motion.nav>
 
-        <div className="md:hidden relative z-50">
+        <div className="lg:hidden relative z-50">
           <button onClick={handleMenuClick} className="text-3xl  transition">
             {isMenuActive ? "✕" : "☰"}
           </button>

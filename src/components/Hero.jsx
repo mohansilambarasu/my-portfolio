@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowDown } from "react-icons/fa";
 import { Button, Link } from "react-scroll";
+import FloatingIcons from "./FloatingIcons";
 
 export const Hero = () => {
   return (
@@ -12,6 +13,8 @@ export const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
+      <FloatingIcons />
+
       <motion.div
         className="hero-content flex flex-col items-center gap-6 max-w-5xl px-6 md:px-8"
         initial={{ y: -50, opacity: 0 }}
