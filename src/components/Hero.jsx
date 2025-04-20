@@ -42,7 +42,7 @@ export const Hero = () => {
         </h2>
 
         <h2 className="text-lg md:text-2xl font-medium text-[#1a1a1a]  text-[#1985a1] audiowide">
-          Actively Seeking Summer 2025 Internship.
+          Actively Seeking Summer / Fall 2025 Internship.
         </h2>
       </motion.div>
 

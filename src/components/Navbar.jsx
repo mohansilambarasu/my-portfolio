@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import { motion, AnimatePresence } from "framer-motion";
-import StarCanvas from "./StarCanvas";
 
 export const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -54,10 +53,7 @@ export const Navbar = () => {
         </motion.nav>
 
         <div className="md:hidden relative z-50">
-          <button
-            onClick={handleMenuClick}
-            className="text-3xl text-[#fff44f] bg-[#2e2e3a] px-0 py-0 rounded-lg border border-[#1985a1] drop-shadow-[0_0_6px_#1985a1] transition"
-          >
+          <button onClick={handleMenuClick} className="text-3xl  transition">
             {isMenuActive ? "✕" : "☰"}
           </button>
         </div>
@@ -69,7 +65,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="fixed top-0 right-0 w-full h-screen bg-[#1f1f2e] flex flex-col items-center pt-6 z-40"
+              className="fixed top-0 right-0 w-full h-screen bg-[#1f1f2e] flex flex-col justify-center items-center gap-12 pt-6 z-40"
             >
               {links.map((link, index) => (
                 <HashLink

@@ -21,7 +21,7 @@ export default function ScrollLinked() {
           right: 0,
           height: 10,
           originX: 0,
-          backgroundColor: "#000",
+          backgroundColor: "#ff4d4d",
         }}
         className="z-[2]"
       />

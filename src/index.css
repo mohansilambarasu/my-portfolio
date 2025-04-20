@@ -9,44 +9,40 @@ body:has(.nav-open){
     letter-spacing: 1px; 
 }
 
-.vertical-timeline::before {
- 
-}
 
 .retro-text {
-font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .typewriter-text {
-font-family: 'VT323', monospace;
+  font-family: 'VT323', monospace;
 }
 
 .orbitron {
-font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .silkscreen {
-    font-family: 'Silkscreen', cursive;
-  }
+  font-family: 'Silkscreen', cursive;
+}
 
-  .terminal {
-    font-family: 'Share Tech Mono', monospace;
-  }
+.terminal {
+  font-family: 'Share Tech Mono', monospace;
+}
 
-  .mono-display {
-    font-family: 'Major Mono Display', monospace;
-  }
+.mono-display {
+  font-family: 'Major Mono Display', monospace;
+}
 
-  .audiowide {
-    font-family: 'Audiowide', cursive;
-  }
+.audiowide {
+  font-family: 'Audiowide', cursive;
+}
 
 
-  body {
-    background-color: #f2f2f2;
-    color: #1a1a1a;
-    font-family: 'VT323', monospace;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
+body {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+}
