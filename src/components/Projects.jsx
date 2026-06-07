@@ -1,243 +1,352 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import project1 from "../assets/personal-projects/ecommerce.png";
-import project2 from "../assets/personal-projects/foodigo.png";
-import project3 from "../assets/personal-projects/tictactoe.png";
-import project4 from "../assets/personal-projects/stickyscripts.png";
-import project5 from "../assets/personal-projects/haute.png";
-import project6 from "../assets/personal-projects/blogsphere.png";
-import project7 from "../assets/personal-projects/exoplanetAnalysis.png";
 
-const personalProjects = [
+import exoplanetImg from "../assets/personal-projects/exoplanetAnalysis.png";
+import blogsphereImg from "../assets/personal-projects/blogsphere.png";
+import ecommerceImg from "../assets/personal-projects/ecommerce.png";
+import foodigoImg from "../assets/personal-projects/foodigo.png";
+
+const filters = ["All", "AI / LLM", "Data", "Frontend"];
+
+const projects = [
   {
-    title: "Exoplanet Analysis",
-    description:
-      "Developed a research website analyzing exoplanet data, showcasing discoveries, trends, and habitability insights using React, Vite, Tailwind CSS, Framer Motion, React Scroll, Charts.",
-    image: project6,
-    technologies: ["Python", "R", "MySQL", "AWS"],
-    link: "https://mohansilambarasu.github.io/exoplanet-analysis/",
+    name: "StudyAI — RAG Document Intelligence",
+    type: "AI / LLM",
+    stack: "LangChain · Pinecone · HuggingFace · FastAPI · React",
+    bg: "#2D1B69",
+    github: "https://github.com/mohansilambarasu/ai-study-assistant",
+    img: null,
   },
   {
-    title: "BlogSphere",
-    description:
-      "BlogSphere App: A full-stack blog platform using React, Vite, Tailwind CSS, enabling users to post, comment, like, and interact in real time.",
-    image: project7,
-    technologies: ["React", "Tailwind CSS", "Vite", "Vercel"],
-    link: "https://myblog-app-xi.vercel.app/",
+    name: "SupportAI — Multi-Agent Customer Support",
+    type: "AI / LLM",
+    stack: "Groq · LangChain · Node.js · React · TypeScript",
+    bg: "#0F1F3D",
+    github: "https://github.com/mohansilambarasu/ai-support-agent",
+    img: null,
   },
   {
-    title: "Ecommerce Web App",
-    description:
-      "Developed a highly responsive front-end e-commerce platform displaying products and cart functionalities with React and Tailwind.",
-    image: project1,
-    technologies: ["React", "Tailwind CSS"],
-    link: "https://mohansilambarasu.github.io/ecommerce-react-app/",
+    name: "Supplier Quality Monitor Agent",
+    type: "AI / LLM",
+    stack: "Text-to-SQL · FastAPI · SQLite · Streamlit · Groq",
+    bg: "#1A3020",
+    github: "https://github.com/mohansilambarasu/supplier-quality-agent",
+    img: null,
   },
   {
-    title: "Foodigo",
-    description:
-      "Built a food delivery front-end site using Bootstrap and AOS library, simulating a high user experience for browsing and ordering food online.",
-    image: project2,
-    technologies: ["Bootstrap", "AOS", "JavaScript"],
-    link: "https://mohansilambarasu.github.io/webdesign-projects-foodigo/",
+    name: "Multilingual Financial Text Classification",
+    type: "Data",
+    stack: "SBERT · FinBERT · XGBoost · scikit-learn · HuggingFace",
+    bg: "#1A2840",
+    github: "https://github.com/mohansilambarasu",
+    img: null,
   },
   {
-    title: "Tic Tac Toe",
-    description:
-      "Developed an interactive and responsive web version of the Tic Tac Toe game using CSS and JavaScript.",
-    image: project3,
-    technologies: ["JavaScript", "CSS"],
-    link: "https://mohansilambarasu.github.io//tic-tac-toe/Project_One/index.html",
+    name: "Asphalt Pavement Degradation Analytics",
+    type: "Data",
+    stack: "PySpark · Databricks · Spark MLlib · SQL",
+    bg: "#2A1F10",
+    github: "https://github.com/mohansilambarasu",
+    img: null,
   },
   {
-    title: "Sticky Scripts",
-    description:
-      "Created a front-end version of a sticky notes app for creating and managing notes using React.js.",
-    image: project4,
-    technologies: ["React"],
-    link: "https://mohansilambarasu.github.io/keeperweb-app/",
+    name: "Exoplanet Data Analysis",
+    type: "Data",
+    stack: "Python · R · AWS · React · Tailwind CSS",
+    bg: "#0D1B2A",
+    github: "https://github.com/mohansilambarasu",
+    img: exoplanetImg,
   },
   {
-    title: "Clothing Store",
-    description:
-      "Created a front-end design for an online clothing store, featuring responsive product listings, category filters, and a shopping cart using React.js.",
-    image: project5,
-    technologies: ["React"],
-    link: "https://mohansilambarasu.github.io/clothingstore-design/",
+    name: "BlogSphere — Blogging Platform",
+    type: "Frontend",
+    stack: "React · Vite · Tailwind CSS · Vercel",
+    bg: "#2B1A2F",
+    github: "https://github.com/mohansilambarasu",
+    img: blogsphereImg,
+  },
+  {
+    name: "Ecommerce Web App",
+    type: "Frontend",
+    stack: "React · Tailwind CSS · React Router",
+    bg: "#1F2B1A",
+    github: "https://github.com/mohansilambarasu",
+    img: ecommerceImg,
+  },
+  {
+    name: "Foodigo",
+    type: "Frontend",
+    stack: "Bootstrap · AOS · JavaScript",
+    bg: "#2B2015",
+    github: "https://mohansilambarasu.github.io/webdesign-projects-foodigo/",
+    img: foodigoImg,
   },
 ];
 
-const workProjects = [
-  {
-    title: "Botox Cosmetic",
-    description:
-      "Worked on the front-end development for the official Botox Cosmetic website using HTML, SCSS, JavaScript, and AEM.",
-    link: "https://www.botoxcosmetic.com/",
-  },
-  {
-    title: "Botox HCP",
-    description:
-      "Contributed to the development of the Botox HCP website, ensuring responsive design and AEM integration.",
-    link: "https://www.botoxcosmetichcp.com/",
-  },
-  {
-    title: "Juvederm",
-    description:
-      "Worked on various UI components for the Juvederm website, enhancing its accessibility and responsiveness.",
-    link: "https://www.juvederm.com/",
-  },
-  {
-    title: "Juvederm HCP",
-    description:
-      "Developed interactive front-end elements for the Juvederm HCP website using JavaScript and SCSS.",
-    link: "https://hcp.juvederm.com/",
-  },
-  {
-    title: "Natrelle",
-    description:
-      "Contributed to the front-end enhancements and AEM integration for the Natrelle website.",
-    link: "https://www.natrelle.com/",
-  },
-  {
-    title: "My Kybella",
-    description:
-      "Developed responsive web pages for My Kybella, focusing on performance optimization.",
-    link: "https://www.mykybella.com/",
-  },
-  {
-    title: "The Look of 3",
-    description:
-      "Worked on UI components and animations for The Look of 3 campaign site.",
-    link: "https://www.thelookof3.com/",
-  },
-  {
-    title: "HCP My Kybella",
-    description:
-      "Enhanced front-end functionality and UI structure for the HCP My Kybella website.",
-    link: "https://hcp.mykybella.com/",
-  },
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
 
-export const Project = () => {
-  const [activeTab, setActiveTab] = useState("personal");
+function ProjectCard({ project, index }) {
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.section
-      className=" py-20 bg-[#e0e0d1]"
-      id="project"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
+    <motion.a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      custom={index}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      style={{
+        display: "block",
+        borderRadius: "10px",
+        overflow: "hidden",
+        border: `1px solid ${hovered ? "var(--accent)" : "var(--border)"}`,
+        textDecoration: "none",
+        cursor: "pointer",
+        transition: "border-color 0.25s ease",
+      }}
     >
-      <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-center mb-10 retro-text text-[#8e44ad]"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+      <div
+        style={{
+          height: "190px",
+          backgroundColor: project.bg,
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        Projects
-      </motion.h2>
+        {project.img ? (
+          <motion.img
+            src={project.img}
+            alt={project.name}
+            animate={{ scale: hovered ? 1.06 : 1 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              width: "88%",
+              height: "88%",
+              objectFit: "cover",
+              borderRadius: "6px",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(12px, 1.6vw, 17px)",
+              color: "rgba(255,255,255,0.12)",
+              textAlign: "center",
+              padding: "0 24px",
+              letterSpacing: "2px",
+              lineHeight: 1.4,
+              userSelect: "none",
+            }}
+          >
+            {project.name.toUpperCase()}
+          </div>
+        )}
 
-      {/* Tabs */}
-      <div className="flex justify-center gap-6 mb-8">
-        <button
-          // className={`text-2xl font-semibold px-6 py-2 rounded-full transition-all duration-300 typewriter-text ${
-          //   activeTab === "personal" ? " " : " "
-          // }`}
-          className={`text-2xl font-semibold px-6 py-2 rounded-full typewriter-text
-            ${
-              activeTab === "personal"
-                ? "bg-[#16a085] text-white shadow-md"
-                : "bg-white text-[#1e1e1e] border border-[#999]"
-            }
-          `}
-          onClick={() => setActiveTab("personal")}
+        <motion.div
+          animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.7 }}
+          transition={{ duration: 0.2 }}
+          style={{
+            position: "absolute",
+            top: "14px",
+            right: "14px",
+            width: "34px",
+            height: "34px",
+            borderRadius: "50%",
+            backgroundColor: "var(--accent)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "15px",
+            color: "#fff",
+            pointerEvents: "none",
+          }}
         >
-          Personal Projects
-        </button>
-        <button
-          className={`text-2xl font-semibold px-6 py-2 rounded-full typewriter-text
-            ${
-              activeTab === "work"
-                ? "bg-[#16a085] text-white shadow-md"
-                : "bg-white text-[#1e1e1e] border border-[#999]"
-            }          
-          `}
-          onClick={() => setActiveTab("work")}
+          ↗
+        </motion.div>
+
+        <div
+          style={{
+            position: "absolute",
+            top: "12px",
+            left: "12px",
+            fontSize: "10px",
+            fontWeight: "700",
+            letterSpacing: "1.5px",
+            color: "rgba(255,255,255,0.8)",
+            textTransform: "uppercase",
+            backgroundColor: "rgba(0,0,0,0.45)",
+            padding: "4px 10px",
+            borderRadius: "3px",
+          }}
         >
-          Work Projects
-        </button>
+          {project.type}
+        </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-        {activeTab === "personal"
-          ? personalProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="bg-[#f7f2e8] hover:bg-[#fae4c2]  p-6 rounded-xl shadow-md border border-[#999999] transform hover:scale-105 transition-transform duration-500 "
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-2xl font-bold typewriter-text audiowide text-[#3b82f6]">
-                  {project.title}
-                </h3>
-                <p className=" mt-2 terminal text-[#1e1e1e]">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-lg font-semibold typewriter-text  px-2 py-1 bg-[#f4d03f] text-[#1e1e1e]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.link}
-                  className="inline-block mt-4  hover:underline text-2xl text-[#e91e63] typewriter-text"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project
-                </a>
-              </motion.div>
-            ))
-          : workProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="p-6 rounded-2xl shadow-lg bg-white hover:bg-[#fae4c2] border border-[#999] hover:scale-105 transition-transform duration-500"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-2xl font-bold text-[#8e44ad]">
-                  {project.title}
-                </h3>
-                <p className=" mt-2 text-[#1e1e1e]">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="inline-block mt-4  hover:underline text-[#e91e63]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Website
-                </a>
-              </motion.div>
-            ))}
+      <div
+        style={{
+          padding: "16px",
+          backgroundColor: "var(--bg-card)",
+          borderTop: "1px solid var(--border)",
+          minHeight: "76px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "14px",
+            fontWeight: "600",
+            color: "var(--text)",
+            marginBottom: "6px",
+            lineHeight: 1.4,
+          }}
+        >
+          {project.name}
+        </div>
+        <div
+          style={{
+            fontSize: "12px",
+            fontWeight: "500",
+            color: "var(--text-muted)",
+            lineHeight: 1.5,
+          }}
+        >
+          {project.stack}
+        </div>
       </div>
-    </motion.section>
+    </motion.a>
   );
-};
+}
+
+export default function Projects() {
+  const [active, setActive] = useState("All");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.type === active);
+
+  return (
+    <section
+      id="projects"
+      style={{
+        padding: "60px 20px",
+        maxWidth: "1100px",
+        margin: "0 auto",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          justifyContent: "space-between",
+          alignItems: isMobile ? "flex-start" : "flex-end",
+          marginBottom: "32px",
+          gap: "16px",
+        }}
+      >
+        <div>
+          <motion.h2
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(44px, 8vw, 80px)",
+              lineHeight: 1,
+              color: "var(--text)",
+              margin: 0,
+            }}
+          >
+            RECENT
+          </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(44px, 8vw, 80px)",
+              lineHeight: 0.88,
+              color: "var(--accent)",
+              margin: 0,
+            }}
+          >
+            PROJECTS
+          </motion.h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}
+        >
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActive(f)}
+              style={{
+                fontSize: "12px",
+                fontWeight: "500",
+                padding: "6px 16px",
+                borderRadius: "20px",
+                border: `1px solid ${active === f ? "var(--accent)" : "var(--border)"}`,
+                color: active === f ? "var(--accent)" : "var(--text-muted)",
+                backgroundColor: "transparent",
+                cursor: "pointer",
+                transition: "all 0.2s",
+              }}
+            >
+              {f}
+            </button>
+          ))}
+        </motion.div>
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile
+            ? "1fr"
+            : "repeat(auto-fill, minmax(300px, 1fr))",
+          gap: "16px",
+        }}
+      >
+        {filtered.map((project, i) => (
+          <ProjectCard key={project.name} project={project} index={i} />
+        ))}
+      </div>
+    </section>
+  );
+}

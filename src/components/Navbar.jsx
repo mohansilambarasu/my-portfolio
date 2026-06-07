@@ -1,87 +1,270 @@
-import { useState, useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 
-export const Navbar = () => {
-  const [isMenuActive, setIsMenuActive] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Navbar() {
+  const [dark, setDark] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const saved = localStorage.getItem("theme");
+    setDark(saved === "dark");
+    document.documentElement.classList.toggle("dark", saved === "dark");
+
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMenuClick = () => {
-    setIsMenuActive(!isMenuActive);
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", next);
   };
 
-  const links = [
-    { href: "/my-portfolio/#top", label: "Home" },
-    { href: "/my-portfolio/#work", label: "Work" },
-    { href: "/my-portfolio/#project", label: "Projects" },
-    { href: "/my-portfolio/#about", label: "About" },
-    { href: "/my-portfolio/#contact", label: "Contact" },
-  ];
+  const navLinks = ["Work", "Projects", "Skills", "About", "Contact"];
+
+  const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+
+  const resumeUrl = `${baseUrl}Mohan_Silambarasu_Elangkumaran_AI_Resume.pdf`;
 
   return (
     <>
-      <div className="fixed w-screen z-[2] w-full flex items-center justify-between px-6 py-4 bg-[#2e2e3a] text-[#fbeec1] retro-text text-sm flex justify-end lg:justify-center items-center">
-        <motion.nav
-          className={`px-10 py-3 rounded-xl bg-[#f3e3c3] border border-[#2e2e2e] shadow-[inset_-4px_-4px_0_#d6c2a8] flex items-center gap-10 transition-all duration-500 hidden lg:flex ${
-            isScrolled ? "scale-100" : "scale-90"
-          } z-50`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+      <nav
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 40,
+          backgroundColor: scrolled || menuOpen ? "var(--bg)" : "transparent",
+          borderBottom:
+            scrolled || menuOpen
+              ? "1px solid var(--border)"
+              : "1px solid transparent",
+          transition: "all 0.3s ease",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            padding: "0 20px",
+            height: "56px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
         >
-          <button className="w-5 h-5 bg-[#2e2e2e] rounded-full shadow-[inset_2px_2px_2px_#444]"></button>
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "20px",
+              letterSpacing: "2px",
+              color: "var(--accent)",
+              flexShrink: 0,
+            }}
+          >
+            MSE
+          </span>
 
-          {links.map((link, index) => (
-            <HashLink
-              key={index}
-              smooth
-              to={link.href}
-              className="text-sm retro-text text-[#2e2e2e] hover:text-[#d62828] transition-all duration-300"
+          {!isMobile && (
+            <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
+              {navLinks.map((link) => (
+                <Link
+                  key={link}
+                  to={link.toLowerCase()}
+                  smooth={true}
+                  duration={600}
+                  offset={-56}
+                  style={{
+                    fontSize: "13px",
+                    color: "var(--text-muted)",
+                    cursor: "pointer",
+                    letterSpacing: "0.5px",
+                    transition: "color 0.2s",
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = "var(--text)")}
+                  onMouseLeave={(e) =>
+                    (e.target.style.color = "var(--text-muted)")
+                  }
+                >
+                  {link}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <button
+              onClick={toggleTheme}
+              style={{
+                width: "34px",
+                height: "34px",
+                borderRadius: "50%",
+                border: "1px solid var(--border)",
+                backgroundColor: "var(--bg-surface)",
+                fontSize: "15px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.2s",
+                flexShrink: 0,
+              }}
+              aria-label="Toggle theme"
             >
-              {link.label}
-            </HashLink>
-          ))}
+              {dark ? "☀️" : "🌙"}
+            </button>
 
-          <button className="w-5 h-5 bg-[#d62828] rounded-full shadow-[inset_2px_2px_2px_#721010]"></button>
-        </motion.nav>
+            {!isMobile && (
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  color: "var(--accent)",
+                  border: "1px solid var(--accent)",
+                  padding: "6px 14px",
+                  borderRadius: "3px",
+                  letterSpacing: "0.5px",
+                  transition: "all 0.2s",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--accent)";
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = "var(--accent)";
+                }}
+              >
+                Resume ↗
+              </a>
+            )}
 
-        <div className="lg:hidden relative z-50">
-          <button onClick={handleMenuClick} className="text-3xl  transition">
-            {isMenuActive ? "✕" : "☰"}
-          </button>
+            {isMobile && (
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                style={{
+                  width: "34px",
+                  height: "34px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                  border: "1px solid var(--border)",
+                  borderRadius: "4px",
+                  backgroundColor: "var(--bg-surface)",
+                  padding: "0",
+                }}
+                aria-label="Toggle menu"
+              >
+                <span
+                  style={{
+                    display: "block",
+                    width: "16px",
+                    height: "1.5px",
+                    backgroundColor: "var(--text)",
+                    transition: "all 0.2s",
+                    transform: menuOpen
+                      ? "rotate(45deg) translate(4px, 4px)"
+                      : "none",
+                  }}
+                />
+                <span
+                  style={{
+                    display: "block",
+                    width: "16px",
+                    height: "1.5px",
+                    backgroundColor: "var(--text)",
+                    transition: "all 0.2s",
+                    opacity: menuOpen ? 0 : 1,
+                  }}
+                />
+                <span
+                  style={{
+                    display: "block",
+                    width: "16px",
+                    height: "1.5px",
+                    backgroundColor: "var(--text)",
+                    transition: "all 0.2s",
+                    transform: menuOpen
+                      ? "rotate(-45deg) translate(4px, -4px)"
+                      : "none",
+                  }}
+                />
+              </button>
+            )}
+          </div>
         </div>
 
-        <AnimatePresence>
-          {isMenuActive && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="fixed top-0 right-0 w-full h-screen bg-[#1f1f2e] flex flex-col justify-center items-center gap-12 pt-6 z-40"
+        {isMobile && menuOpen && (
+          <div
+            style={{
+              borderTop: "1px solid var(--border)",
+              backgroundColor: "var(--bg)",
+              padding: "16px 20px 20px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0",
+            }}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link}
+                to={link.toLowerCase()}
+                smooth={true}
+                duration={600}
+                offset={-56}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  color: "var(--text-muted)",
+                  cursor: "pointer",
+                  padding: "12px 0",
+                  borderBottom: "1px solid var(--border)",
+                  letterSpacing: "0.3px",
+                }}
+              >
+                {link}
+              </Link>
+            ))}
+
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontSize: "14px",
+                fontWeight: "600",
+                color: "var(--accent)",
+                marginTop: "16px",
+                letterSpacing: "0.5px",
+              }}
             >
-              {links.map((link, index) => (
-                <HashLink
-                  key={index}
-                  smooth
-                  to={link.href}
-                  onClick={handleMenuClick}
-                  className="text-2xl retro-text text-[#fbeec1] hover:text-[#ffa500] transition-all duration-300"
-                >
-                  {link.label}
-                </HashLink>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+              Resume ↗
+            </a>
+          </div>
+        )}
+      </nav>
     </>
   );
-};
+}

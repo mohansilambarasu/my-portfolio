@@ -1,96 +1,176 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import FloatingIcons from "./FloatingIcons";
+import photo from "../assets/img.webp";
 
-export const About = () => {
+export default function About() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   return (
-    <motion.section
-      className="relative flex items-center justify-center min-h-screen px-6 py-12 bg-[#e9d8a6]"
+    <section
       id="about"
+      style={{
+        padding: isMobile ? "48px 20px" : "60px 24px",
+        maxWidth: "1100px",
+        margin: "0 auto",
+        borderTop: "1px solid var(--border)",
+      }}
     >
-      <motion.div
-        className="max-w-7xl flex flex-col space-y-8 p-8 md:p-10 lg:p-12 transition-all duration-500"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div style={{ marginBottom: isMobile ? "36px" : "48px" }}>
         <motion.h2
-          className="text-3xl md:text-5xl font-extrabold text-center retro-text text-[#035cc2]"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(48px, 8vw, 80px)",
+            lineHeight: 1,
+            color: "var(--text)",
+            margin: 0,
+          }}
         >
-          About Me!
+          ABOUT
         </motion.h2>
 
-        <FloatingIcons opacity="0.3" />
+        <motion.h2
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(48px, 8vw, 80px)",
+            lineHeight: 0.88,
+            color: "var(--accent)",
+            margin: 0,
+          }}
+        >
+          ME
+        </motion.h2>
+      </div>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 2fr",
+          gap: isMobile ? "32px" : "52px",
+          alignItems: "start",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, x: isMobile ? 0 : -40, scale: 0.96 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            maxWidth: isMobile ? "280px" : "100%",
+            margin: isMobile ? "0 auto" : 0,
+          }}
+        >
+          <img
+            src={photo}
+            alt="Mohan Silambarasu"
+            style={{
+              width: "100%",
+              aspectRatio: "3/4",
+              objectFit: "cover",
+              borderRadius: "8px",
+              border: "1px solid var(--border)",
+              filter: "grayscale(15%)",
+            }}
+          />
+        </motion.div>
 
         <motion.div
-          className="space-y-6 text-justify terminal text-[#9b2226]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          initial={{ opacity: 0, x: isMobile ? 0 : 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            viewport={{ once: true }}
+          <p
+            style={{
+              fontSize: isMobile ? "26px" : "22px",
+              fontWeight: "400",
+              color: "var(--text)",
+              lineHeight: isMobile ? 1.45 : 1.7,
+              marginBottom: "24px",
+              letterSpacing: "-0.3px",
+            }}
           >
-            Hi, I'm <span className="font-semibold">Mohan</span>, an
-            international student pursuing my Master's in Applied Information
-            Technology at George Mason University with a{" "}
-            <span className="">4.0 GPA</span>, specializing in Data Analytics
-            and Intelligence Methods. I currently work as a{" "}
-            <span className="">Graduate Teaching Assistant</span>, assisting
-            with DBMS, SQL, and grading.
-          </motion.p>
+            I'm Mohan, a recent M.S. graduate and Full-Stack AI Engineer looking
+            for new grad roles.
+          </p>
 
-          <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
+          <p
+            style={{
+              fontSize: isMobile ? "17px" : "16px",
+              fontWeight: "400",
+              color: "var(--text-muted)",
+              lineHeight: isMobile ? 1.75 : 1.85,
+              marginBottom: "20px",
+            }}
           >
-            With over <span className="">three years</span> of experience in
-            Frontend Development and Data Analysis, I specialize in{" "}
-            <span className="">JavaScript, React.js, SCSS,</span> and{" "}
-            <span className="">AEM</span>, managing CI/CD pipelines in GitLab. I
-            have solid experience working in IT environments following{" "}
-            <span className="">Agile methodologies</span>, collaborating with
-            cross-functional teams to deliver high-quality solutions. I’ve led
-            teams delivering <span className="">12+ web applications</span> and
-            contributed to hiring top talent. Right now, I’m exploring{" "}
-            <span className="">big data, cloud computing,</span> and{" "}
-            <span className="">NLP</span>.
-          </motion.p>
+            I build intelligent products across AI, data, backend, and frontend
+            layers — from RAG pipelines and multi-agent workflows to FastAPI
+            backends, data pipelines, and React/TypeScript interfaces.
+          </p>
 
-          <motion.p
-            className="text-lg md:text-xl leading-relaxed  text-justify"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
+          <p
+            style={{
+              fontSize: isMobile ? "17px" : "16px",
+              fontWeight: "400",
+              color: "var(--text-muted)",
+              lineHeight: isMobile ? 1.75 : 1.85,
+              marginBottom: "32px",
+            }}
           >
-            I am actively seeking{" "}
-            <span className="text-sm md:text-lg retro-text">
-              Summer/Fall 2025 internships
-            </span>{" "}
-            in{" "}
-            <span className="text-sm md:text-lg retro-text">
-              Software Development or Data Engineering,
-            </span>{" "}
-            where I can leverage my technical expertise, industry experience,
-            and problem-solving skills. I am eager to contribute effectively to
-            your team while continuing to learn and grow within your
-            organization.
-          </motion.p>
+            I recently graduated with an M.S. in Applied Information Technology
+            from George Mason University — GPA 4.0, Academic Excellence Award,
+            specializing in Data Analytics and Intelligence Methods.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              flexWrap: "wrap",
+            }}
+          >
+            {[
+              "📍 Fairfax, VA",
+              "🎓 Recent M.S. Grad",
+              "✈️ Open to Relocation",
+              "🛂 F-1 OPT STEM",
+            ].map((item) => (
+              <span
+                key={item}
+                style={{
+                  fontSize: isMobile ? "14px" : "15px",
+                  fontWeight: "500",
+                  color: "var(--text-muted)",
+                  border: "1px solid var(--border)",
+                  padding: isMobile ? "8px 14px" : "8px 18px",
+                  borderRadius: "20px",
+                  backgroundColor: "var(--bg-card)",
+                }}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </motion.div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
-};
+}

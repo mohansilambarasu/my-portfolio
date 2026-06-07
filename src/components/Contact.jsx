@@ -1,74 +1,175 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 
-export const Contact = () => {
+export default function Contact() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
-    <motion.div
-      className="min-h-screen flex flex-col justify-center items-center   py-20 px-6 bg-[#1985a1]"
+    <section
       id="contact"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      style={{
+        padding: "60px 20px 100px",
+        maxWidth: "1100px",
+        margin: "0 auto",
+        borderTop: "1px solid var(--border)",
+      }}
     >
-      <motion.h2
-        className="text-5xl font-extrabold text-center mb-8 retro-text text-[#ffbf38] drop-shadow-[0_0_6px_#9b2226] "
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        Get in Touch
-      </motion.h2>
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(44px, 8vw, 80px)",
+            lineHeight: 1,
+            color: "var(--text)",
+            margin: 0,
+          }}
+        >
+          LET'S
+        </h2>
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(44px, 8vw, 80px)",
+            lineHeight: 0.88,
+            color: "var(--accent)",
+            margin: "0 0 24px",
+          }}
+        >
+          CONNECT
+        </h2>
+      </motion.div>
 
-      <motion.p
-        className="text-2xl  text-center max-w-2xl md:max-w-3xl mb-10 audiowide text-[#e9d8a6] "
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
-        Please feel free to reach out!
-      </motion.p>
-
-      <div className="flex flex-col">
-        <motion.a
-          href="mailto:mohansilambu77@gmail.com"
-          className="flex items-center gap-3  p-4 rounded-xl transition retro-text bg-[#ff4d4d] hover:bg-[#ff6666] text-white "
-          whileHover={{ scale: 1.1 }}
+        <p
+          style={{
+            fontSize: isMobile ? "15px" : "16px",
+            fontWeight: "400",
+            color: "var(--text-muted)",
+            maxWidth: "500px",
+            lineHeight: 1.8,
+            marginBottom: "32px",
+          }}
         >
-          <FaEnvelope size={24} /> Send an email now
-        </motion.a>
-      </div>
+          Open to full-time AI Engineer, Full-Stack AI Developer, or Data
+          Engineer roles in the U.S. F-1 OPT STEM — no sponsorship needed for 3
+          years. Happy to relocate anywhere.
+        </p>
 
-      <motion.p
-        className="text-2xl  text-center max-w-2xl md:max-w-3xl mt-10 audiowide text-[#e9d8a6]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        Whether you want to discuss a project, collaborate, or just say{" "}
-        <span className="">hi!</span>, my inbox is always open.
-      </motion.p>
-
-      <div className="flex gap-6 mt-10 ">
-        <motion.a
-          href="https://www.linkedin.com/in/mohan-silambarasu-elangkumaran/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className=" text-3xl transition text-[#f7f2e8] drop-shadow-[0_0_6px_#000000]"
-          whileHover={{ scale: 1.2 }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            gap: "10px",
+            marginBottom: "44px",
+            maxWidth: isMobile ? "280px" : "none",
+          }}
         >
-          <FaLinkedin />
-        </motion.a>
+          <a
+            href="mailto:melangku@gmu.edu"
+            style={{
+              fontSize: "14px",
+              fontWeight: "600",
+              color: "#fff",
+              backgroundColor: "var(--accent)",
+              padding: "13px 28px",
+              borderRadius: "4px",
+              letterSpacing: "0.3px",
+              transition: "opacity 0.2s",
+              display: "inline-block",
+              textAlign: "center",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Send an Email ↗
+          </a>
 
-        <motion.a
-          href="https://github.com/mohansilambarasu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className=" text-3xl transition text-[#f7f2e8] drop-shadow-[0_0_6px_#000000]"
-          whileHover={{ scale: 1.2 }}
+          {[
+            {
+              label: "LinkedIn ↗",
+              href: "https://linkedin.com/in/mohan-silambarasu-elangkumaran",
+            },
+            { label: "GitHub ↗", href: "https://github.com/mohansilambarasu" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: "14px",
+                fontWeight: "500",
+                color: "var(--text)",
+                border: "1px solid var(--border)",
+                padding: "13px 28px",
+                borderRadius: "4px",
+                letterSpacing: "0.3px",
+                transition: "all 0.2s",
+                display: "inline-block",
+                textAlign: "center",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--accent)";
+                e.currentTarget.style.color = "var(--accent)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border)";
+                e.currentTarget.style.color = "var(--text)";
+              }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+
+        <div
+          style={{
+            paddingTop: "24px",
+            borderTop: "1px solid var(--border)",
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            justifyContent: "space-between",
+            alignItems: isMobile ? "flex-start" : "center",
+            gap: "8px",
+          }}
         >
-          <FaGithub />
-        </motion.a>
-      </div>
-    </motion.div>
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: isMobile ? "13px" : "15px",
+              letterSpacing: "2px",
+              color: "var(--text-muted)",
+            }}
+          >
+            MOHAN SILAMBARASU ELANGKUMARAN
+          </span>
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: "400",
+              color: "var(--text-muted)",
+            }}
+          >
+            melangku@gmu.edu
+          </span>
+        </div>
+      </motion.div>
+    </section>
   );
-};
+}
