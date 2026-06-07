@@ -149,9 +149,9 @@ export default function About() {
           >
             {[
               "📍 Fairfax, VA",
-              "🎓 Recent M.S. Grad",
+              "🎓 Recent M.S. Grad '26",
+              "💼 F-1 OPT",
               "✈️ Open to Relocation",
-              "🛂 F-1 OPT STEM",
             ].map((item) => (
               <span
                 key={item}

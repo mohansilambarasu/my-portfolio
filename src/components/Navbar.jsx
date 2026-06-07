@@ -71,7 +71,7 @@ export default function Navbar() {
           <span
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "20px",
+              fontSize: "26px",
               letterSpacing: "2px",
               color: "var(--accent)",
               flexShrink: 0,
@@ -90,7 +90,7 @@ export default function Navbar() {
                   duration={600}
                   offset={-56}
                   style={{
-                    fontSize: "13px",
+                    fontSize: "16px",
                     color: "var(--text-muted)",
                     cursor: "pointer",
                     letterSpacing: "0.5px",
@@ -134,7 +134,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   color: "var(--accent)",
                   border: "1px solid var(--accent)",

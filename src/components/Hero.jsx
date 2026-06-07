@@ -84,8 +84,7 @@ export default function Hero() {
           lineHeight: 1.6,
         }}
       >
-        AI & Frontend Engineer · M.S Grad ’26 · 4.0 GPA · F-1 OPT STEM · Open to
-        relocation
+        AI & Frontend Engineer · F-1 OPT · Open to relocation
       </motion.p>
 
       <motion.div
@@ -194,9 +193,12 @@ export default function Hero() {
         }}
       >
         {[
-          { to: 3, suffix: "+", label: "Years Experience" },
-          { text: "4.0 GPA", label: "Master of Science" },
-          { text: "F1 OPT", label: "STEM Graduate" },
+          {
+            text: "MS GRAD ' 26",
+            label: "INFORMATION TECHNOLOGY",
+          },
+          { text: "4.0 GPA", label: "ACADEMIC EXCELLENCE AWARD '26" },
+          { text: "F1 OPT", label: "WORK AUTHORIZATION" },
         ].map(({ to, suffix, decimals, text, label }) => (
           <div key={label}>
             <div
