@@ -5,8 +5,16 @@ import exoplanetImg from "../assets/personal-projects/exoplanetAnalysis.png";
 import blogsphereImg from "../assets/personal-projects/blogsphere.png";
 import ecommerceImg from "../assets/personal-projects/ecommerce.png";
 import foodigoImg from "../assets/personal-projects/foodigo.png";
+import compkraftui from "../assets/personal-projects/compkraftui.png";
 
-const filters = ["All", "AI / LLM", "Data", "Frontend"];
+const filters = ["AI / LLM", "Data / Research", "Frontend", "All"];
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const finalProjectUrl = `${baseUrl}melangk_finalproject.pdf`;
+const financialClassificationUrl = `${baseUrl}AIT_626_Final_Project.pdf`;
+const asphaltAnalyticsUrl = `${baseUrl}AIT614project_paper_final.pdf`;
 
 const projects = [
   {
@@ -34,43 +42,51 @@ const projects = [
     img: null,
   },
   {
+    name: "CompKraftUI — AI-Powered React Component Generator",
+    type: "AI / LLM",
+    stack: "React · Prompt Engineering · LLM API · Groq SDK",
+    bg: "#1A2840",
+    github: "https://craftui-liard.vercel.app/",
+    img: compkraftui,
+  },
+  {
     name: "Multilingual Financial Text Classification",
-    type: "Data",
+    type: "Data / Research",
     stack: "SBERT · FinBERT · XGBoost · scikit-learn · HuggingFace",
     bg: "#1A2840",
-    github: "https://github.com/mohansilambarasu",
+    github: financialClassificationUrl,
     img: null,
   },
   {
     name: "Asphalt Pavement Degradation Analytics",
-    type: "Data",
+    type: "Data / Research",
     stack: "PySpark · Databricks · Spark MLlib · SQL",
     bg: "#2A1F10",
-    github: "https://github.com/mohansilambarasu",
+    github: asphaltAnalyticsUrl,
     img: null,
   },
   {
     name: "Exoplanet Data Analysis",
-    type: "Data",
+    type: "Data / Research",
     stack: "Python · R · AWS · React · Tailwind CSS",
     bg: "#0D1B2A",
-    github: "https://github.com/mohansilambarasu",
-    img: exoplanetImg,
+    github: finalProjectUrl,
+    img: blogsphereImg,
   },
   {
     name: "BlogSphere — Blogging Platform",
     type: "Frontend",
     stack: "React · Vite · Tailwind CSS · Vercel",
     bg: "#2B1A2F",
-    github: "https://github.com/mohansilambarasu",
-    img: blogsphereImg,
+    github: "https://myblog-app-xi.vercel.app/",
+    img: exoplanetImg,
   },
   {
     name: "Ecommerce Web App",
     type: "Frontend",
     stack: "React · Tailwind CSS · React Router",
     bg: "#1F2B1A",
-    github: "https://github.com/mohansilambarasu",
+    github: "https://mohansilambarasu.github.io/ecommerce-react-app/",
     img: ecommerceImg,
   },
   {
@@ -240,7 +256,7 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState("AI / LLM");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
