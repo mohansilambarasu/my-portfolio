@@ -7,7 +7,7 @@ import ecommerceImg from "../assets/personal-projects/ecommerce.png";
 import foodigoImg from "../assets/personal-projects/foodigo.png";
 import compkraftui from "../assets/personal-projects/compkraftui.png";
 
-const filters = ["AI / LLM", "Data / Research", "Frontend", "All"];
+const filters = ["Frontend", "Data / Research", "AI / LLM", "All"];
 const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
@@ -17,30 +17,30 @@ const financialClassificationUrl = `${baseUrl}AIT_626_Final_Project.pdf`;
 const asphaltAnalyticsUrl = `${baseUrl}AIT614project_paper_final.pdf`;
 
 const projects = [
-  {
-    name: "StudyAI — RAG Document Intelligence",
-    type: "AI / LLM",
-    stack: "LangChain · Pinecone · HuggingFace · FastAPI · React",
-    bg: "#2D1B69",
-    github: "https://github.com/mohansilambarasu/ai-study-assistant",
-    img: null,
-  },
-  {
-    name: "SupportAI — Multi-Agent Customer Support",
-    type: "AI / LLM",
-    stack: "Groq · LangChain · Node.js · React · TypeScript",
-    bg: "#0F1F3D",
-    github: "https://github.com/mohansilambarasu/ai-support-agent",
-    img: null,
-  },
-  {
-    name: "Supplier Quality Monitor Agent",
-    type: "AI / LLM",
-    stack: "Text-to-SQL · FastAPI · SQLite · Streamlit · Groq",
-    bg: "#1A3020",
-    github: "https://github.com/mohansilambarasu/supplier-quality-agent",
-    img: null,
-  },
+  // {
+  //   name: "StudyAI — RAG Document Intelligence",
+  //   type: "AI / LLM",
+  //   stack: "LangChain · Pinecone · HuggingFace · FastAPI · React",
+  //   bg: "#2D1B69",
+  //   github: "https://github.com/mohansilambarasu/ai-study-assistant",
+  //   img: null,
+  // },
+  // {
+  //   name: "SupportAI — Multi-Agent Customer Support",
+  //   type: "AI / LLM",
+  //   stack: "Groq · LangChain · Node.js · React · TypeScript",
+  //   bg: "#0F1F3D",
+  //   github: "https://github.com/mohansilambarasu/ai-support-agent",
+  //   img: null,
+  // },
+  // {
+  //   name: "Supplier Quality Monitor Agent",
+  //   type: "AI / LLM",
+  //   stack: "Text-to-SQL · FastAPI · SQLite · Streamlit · Groq",
+  //   bg: "#1A3020",
+  //   github: "https://github.com/mohansilambarasu/supplier-quality-agent",
+  //   img: null,
+  // },
   {
     name: "CompKraftUI — AI-Powered React Component Generator",
     type: "AI / LLM",
@@ -256,7 +256,7 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const [active, setActive] = useState("AI / LLM");
+  const [active, setActive] = useState("Frontend");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
