@@ -61,14 +61,15 @@ export default function Contact() {
             fontSize: isMobile ? "15px" : "16px",
             fontWeight: "400",
             color: "var(--text-muted)",
-            maxWidth: "500px",
+            maxWidth: "560px",
             lineHeight: 1.8,
             marginBottom: "32px",
           }}
         >
-          Open to full-time AI Engineer, Full-Stack AI Developer, or Data
-          Engineer roles in the U.S. F-1 OPT STEM — no sponsorship needed for 3
-          years. Happy to relocate anywhere.
+          Open to full-time and internship opportunities in Software
+          Engineering, Frontend Engineering, and Data Systems across the U.S.
+          Authorized to work full-time in the U.S. and open to relocation
+          nationwide.
         </p>
 
         <div
@@ -81,7 +82,7 @@ export default function Contact() {
           }}
         >
           <a
-            href="mailto:melangku@gmu.edu"
+            href="mailto:mohansilambarasu@gmail.com"
             style={{
               fontSize: "14px",
               fontWeight: "600",
@@ -166,7 +167,7 @@ export default function Contact() {
               color: "var(--text-muted)",
             }}
           >
-            melangku@gmu.edu
+            mohansilambarasu@gmail.com
           </span>
         </div>
       </motion.div>

@@ -1,101 +1,55 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import exoplanetImg from "../assets/personal-projects/exoplanetAnalysis.png";
-import blogsphereImg from "../assets/personal-projects/blogsphere.png";
-import ecommerceImg from "../assets/personal-projects/ecommerce.png";
-import foodigoImg from "../assets/personal-projects/foodigo.png";
-import compkraftui from "../assets/personal-projects/compkraftui.png";
-
-const filters = ["Frontend", "Data / Research", "AI / LLM", "All"];
 const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
-const finalProjectUrl = `${baseUrl}melangk_finalproject.pdf`;
+const finalProjectUrl = `${baseUrl}AIT_580_Final_Project.pdf`;
 const financialClassificationUrl = `${baseUrl}AIT_626_Final_Project.pdf`;
-const asphaltAnalyticsUrl = `${baseUrl}AIT614project_paper_final.pdf`;
+const asphaltAnalyticsUrl = `${baseUrl}AIT_614_Final_Project.pdf`;
+const netflixAnalysisUrl = `${baseUrl}AIT_664_Final_Project.pdf`;
 
 const projects = [
-  // {
-  //   name: "StudyAI — RAG Document Intelligence",
-  //   type: "AI / LLM",
-  //   stack: "LangChain · Pinecone · HuggingFace · FastAPI · React",
-  //   bg: "#2D1B69",
-  //   github: "https://github.com/mohansilambarasu/ai-study-assistant",
-  //   img: null,
-  // },
-  // {
-  //   name: "SupportAI — Multi-Agent Customer Support",
-  //   type: "AI / LLM",
-  //   stack: "Groq · LangChain · Node.js · React · TypeScript",
-  //   bg: "#0F1F3D",
-  //   github: "https://github.com/mohansilambarasu/ai-support-agent",
-  //   img: null,
-  // },
-  // {
-  //   name: "Supplier Quality Monitor Agent",
-  //   type: "AI / LLM",
-  //   stack: "Text-to-SQL · FastAPI · SQLite · Streamlit · Groq",
-  //   bg: "#1A3020",
-  //   github: "https://github.com/mohansilambarasu/supplier-quality-agent",
-  //   img: null,
-  // },
   {
-    name: "CompKraftUI — AI-Powered React Component Generator",
-    type: "AI / LLM",
-    stack: "React · Prompt Engineering · LLM API · Groq SDK",
+    name: "Menu Admin SDK — Embeddable Frontend SDK",
+    type: "Software Engineering",
+    stack: "React · TypeScript · Shadow DOM · Vite · SDK Architecture",
     bg: "#1A2840",
-    github: "https://craftui-liard.vercel.app/",
-    img: compkraftui,
+    github: "https://github.com/mohansilambarasu/menu-admin-sdk",
+    img: null,
   },
   {
-    name: "Multilingual Financial Text Classification",
-    type: "Data / Research",
-    stack: "SBERT · FinBERT · XGBoost · scikit-learn · HuggingFace",
+    name: "FinMMEval — Multilingual Financial Domain Classification",
+    type: "Machine Learning & NLP",
+    stack: "SBERT · FinBERT · XGBoost · PyTorch · scikit-learn",
     bg: "#1A2840",
     github: financialClassificationUrl,
     img: null,
   },
   {
-    name: "Asphalt Pavement Degradation Analytics",
-    type: "Data / Research",
-    stack: "PySpark · Databricks · Spark MLlib · SQL",
+    name: "Large-Scale Pavement Degradation Analytics",
+    type: "Data Engineering & ML",
+    stack: "PySpark · Databricks · Spark MLlib · Machine Learning",
     bg: "#2A1F10",
     github: asphaltAnalyticsUrl,
     img: null,
   },
   {
-    name: "Exoplanet Data Analysis",
-    type: "Data / Research",
-    stack: "Python · R · AWS · React · Tailwind CSS",
+    name: "NASA Exoplanet Analytics",
+    type: "Data Analytics & Cloud",
+    stack: "Python · SQL · MySQL · AWS · R",
     bg: "#0D1B2A",
     github: finalProjectUrl,
-    img: blogsphereImg,
+    img: null,
   },
   {
-    name: "BlogSphere — Blogging Platform",
-    type: "Frontend",
-    stack: "React · Vite · Tailwind CSS · Vercel",
+    name: "Netflix Content Analysis & Topic Modeling",
+    type: "NLP & Analytics",
+    stack: "Python · NLP · LDA · CountVectorizer · Tableau",
     bg: "#2B1A2F",
-    github: "https://myblog-app-xi.vercel.app/",
-    img: exoplanetImg,
-  },
-  {
-    name: "Ecommerce Web App",
-    type: "Frontend",
-    stack: "React · Tailwind CSS · React Router",
-    bg: "#1F2B1A",
-    github: "https://mohansilambarasu.github.io/ecommerce-react-app/",
-    img: ecommerceImg,
-  },
-  {
-    name: "Foodigo",
-    type: "Frontend",
-    stack: "Bootstrap · AOS · JavaScript",
-    bg: "#2B2015",
-    github: "https://mohansilambarasu.github.io/webdesign-projects-foodigo/",
-    img: foodigoImg,
+    github: netflixAnalysisUrl,
+    img: null,
   },
 ];
 
@@ -164,8 +118,8 @@ function ProjectCard({ project, index }) {
           <div
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(12px, 1.6vw, 17px)",
-              color: "rgba(255,255,255,0.12)",
+              fontSize: "20px",
+              color: "#ffffff",
               textAlign: "center",
               padding: "0 24px",
               letterSpacing: "2px",
@@ -223,7 +177,7 @@ function ProjectCard({ project, index }) {
           padding: "16px",
           backgroundColor: "var(--bg-card)",
           borderTop: "1px solid var(--border)",
-          minHeight: "76px",
+          minHeight: "113px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -256,7 +210,6 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const [active, setActive] = useState("Frontend");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -264,9 +217,6 @@ export default function Projects() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
-
-  const filtered =
-    active === "All" ? projects : projects.filter((p) => p.type === active);
 
   return (
     <section
@@ -320,34 +270,6 @@ export default function Projects() {
             PROJECTS
           </motion.h2>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              style={{
-                fontSize: "12px",
-                fontWeight: "500",
-                padding: "6px 16px",
-                borderRadius: "20px",
-                border: `1px solid ${active === f ? "var(--accent)" : "var(--border)"}`,
-                color: active === f ? "var(--accent)" : "var(--text-muted)",
-                backgroundColor: "transparent",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-            >
-              {f}
-            </button>
-          ))}
-        </motion.div>
       </div>
 
       <div
@@ -359,7 +281,7 @@ export default function Projects() {
           gap: "16px",
         }}
       >
-        {filtered.map((project, i) => (
+        {projects.map((project, i) => (
           <ProjectCard key={project.name} project={project} index={i} />
         ))}
       </div>

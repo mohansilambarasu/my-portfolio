@@ -8,12 +8,15 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    setDark(saved === "dark");
-    document.documentElement.classList.toggle("dark", saved === "dark");
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
 
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     const onResize = () => setIsMobile(window.innerWidth < 768);
+
+    onScroll();
+    onResize();
 
     window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", onResize);
@@ -25,10 +28,7 @@ export default function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-    document.documentElement.classList.toggle("dark", next);
+    setDark((prev) => !prev);
   };
 
   const navLinks = ["Work", "Projects", "Skills", "About", "Contact"];
